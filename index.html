@@ -18,7 +18,11 @@
 @media(prefers-reduced-motion:reduce){*,*:before{animation:none!important;transition:none!important}}
 </style>
 </head>
-<body><main class="shell">
+<body>
+<!-- sahaba-portal-navigation -->
+<nav aria-label="العودة إلى بوابة الصحابة" style="direction:rtl;box-sizing:border-box;width:100%;padding:8px 14px;text-align:right;background:#fff9e8;color:#174b47;border-bottom:1px solid #e9dfc4;font-family:Alexandria,Arial,sans-serif;font-size:13px;line-height:1.8;position:relative;z-index:2"><a href="https://mrsmervet.github.io/sahaba-learning-portal/" style="display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:9px;background:#e4f1e8;color:#174b47;text-decoration:none;font-weight:700">⌂ العودة إلى بوابة الصحابة</a></nav>
+<!-- /sahaba-portal-navigation -->
+<main class="shell">
 <header class="topbar"><div class="brand"><span class="brand-icon" aria-hidden="true">⚓</span><div><strong>صيد المعرفة</strong><small>رحلة في سيرة عثمان بن عفان رضي الله عنه</small></div></div><div class="tools"><button type="button" class="icon-btn" id="motion" aria-pressed="false">إيقاف الحركة</button><button type="button" class="icon-btn" id="sound" aria-pressed="false">الصوت: مغلق</button></div></header>
 <section id="welcome"><div class="hero"><div><span class="tag">١٠ أسئلة • رحلة مليئة بالاكتشاف</span><h1>اصطد الكلمة…<br><em>واجمع المعرفة!</em></h1><p class="intro">أبحر في سيرة سيدنا عثمان بن عفان رضي الله عنه. اقرأ السؤال، وابحث بين الأسماك عن الإجابة الصحيحة، ثم اضغط عليها لتصيدها!</p><div class="teacher">إعداد المعلمة / ميرفت امين</div><div class="chips"><span>🐟 كلمات عائمة</span><span>⭐ نقاط ومكافآت</span><span>🏆 وسام في النهاية</span></div></div>
 <form class="ticket" id="student-form"><span class="badge" aria-hidden="true">🎒</span><h2>بطاقة المستكشف</h2><p>اكتب اسمك لنبدأ مغامرة الصيد.</p><label for="student-name">اسم الطالب</label><input id="student-name" name="student" placeholder="اكتب اسمك هنا" maxlength="50" required autocomplete="given-name"><p class="formerror" id="formerror" role="alert"></p><button class="primary" type="submit">لنبدأ رحلة الصيد ←</button></form></div>
@@ -57,3 +61,4 @@ function finish(){show('results');const first=history.filter(h=>h.tries===1).len
 $('student-form').addEventListener('submit',e=>{e.preventDefault();const name=$('student-name').value.trim();if(!name){$('formerror').textContent='اكتب اسمك أولا، يا مستكشف.';return}$('formerror').textContent='';student={name};start()});
 $('next').addEventListener('click',()=>{if(!locked)return;if(index===9)finish();else{index++;renderQuestion()}});$('replay').addEventListener('click',start);$('change-student').addEventListener('click',()=>{show('welcome');$('student-name').value='';$('student-name').focus()});$('sound').addEventListener('click',()=>{soundOn=!soundOn;$('sound').textContent=soundOn?'الصوت: يعمل':'الصوت: مغلق';$('sound').setAttribute('aria-pressed',String(soundOn));tone(true)});$('motion').addEventListener('click',()=>{still=!still;document.body.classList.toggle('still',still);$('motion').textContent=still?'تشغيل الحركة':'إيقاف الحركة';$('motion').setAttribute('aria-pressed',String(still))});
 </script></body></html>
+
